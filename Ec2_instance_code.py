@@ -17,7 +17,7 @@ def lambda_handler(event, context):
         cloudformation_template = download_template_from_s3(s3_bucket, s3_object_key)
  
         
-        cloudformation = boto3.client('cloudformation hii')
+        cloudformation = boto3.client('cloudformation new')
  
        
         response = cloudformation.create_stack(

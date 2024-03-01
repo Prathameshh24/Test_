@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: '2010-09-09'
+ 
+Parameters:
+    InstanceTypeParameter:
+      Type: String
+      Default: t2.micro
+      AllowedValues:
+        - t2.micro
+        - t3.micro
+        - t1.micro
+      Description: Enter t2.micro, t3.micro, or t1.micro. Default is t2.micro.	
+    AmiId:
+      Type: String
+      Default: ami-079db87dc4c10ac91
+      Description : The ID of the AMI to use for the EC2 instance.
+    KeyPairName:
+      Type: String
+      Default: MyKeyPair
+      Description: Name of the key pair to use for the EC2 instance
+ 
+Resources:
+  MyEC2Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: 
+        Ref: InstanceTypeParameter
+      ImageId: 
+        Ref: AmiId
+      KeyName: 
+        Ref: KeyPairName
+ 
+Outputs:
+  InstanceId:
+    Value: !Ref MyEC2Instance
+
+
+
+
+
+
+
